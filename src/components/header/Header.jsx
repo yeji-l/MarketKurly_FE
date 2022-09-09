@@ -43,6 +43,28 @@ const Header = (props) => {
             </Logo>
           </Grid>
       </Grid>
+      <Container>
+        <Gnb>
+          <GnbMenu>
+              <li className="all-categoty menu1">전체 카테고리</li>
+              <li className="menu2">신상품</li>
+              <li className="menu3">베스트</li>
+              <li className="menu4">알뜰쇼핑</li>
+              <li className="menu5">특가/혜택</li>
+            </GnbMenu>
+        <Grid position="relative">
+          <GnbInput
+                  placeholder="검색어를 입력해주세요."
+                />
+                <GnbInputClick
+                  src="https://res.kurly.com/pc/service/common/1908/ico_search_x2.png"
+                  width="30px"
+                  height="30px"
+                  alt="마켓컬리 검색창 돋보기"
+                />
+        </Grid>
+        </Gnb>
+      </Container>
     </>
   );
 };
@@ -111,4 +133,103 @@ const Logo = styled.div`
     width: 100%;
   }
 `;
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  z-index: 200;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+`;
+
+const Gnb = styled.div`
+  width: 1050px;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 9px 0 8px 0;
+  justify-content: space-between;
+  background-color: #ffffff;
+  letter-spacing: -0.3px;
+`;
+
+const GnbMenu = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  font-size: 16px;
+  color: #333;
+  line-height: 20px;
+  text-align: center;
+  font-family: "Noto Sans";
+  & li {
+    list-style: none;
+    cursor: pointer;
+    font-weight: 500;
+    &:hover {
+      color: #5f0081;
+    }
+    &.menu1 {
+      width: 148px;
+    }
+    &.menu2,
+    &.menu4 {
+      width: 124px;
+    }
+    &.menu3,
+    &.menu5 {
+      width: 116px;
+    }
+  }
+  & .all-categoty:before {
+    content: url("https://res.kurly.com/pc/service/common/1908/ico_gnb_all_off.png");
+    position: relative;
+    width: 16px;
+    height: 14px;
+    top: 1px;
+    left: -16px;
+  }
+  & .all-categoty:hover:before {
+    content: url("https://res.kurly.com/pc/service/common/1908/ico_gnb_all.png");
+    position: relative;
+    width: 16px;
+    height: 14px;
+    top: 1px;
+    left: -16px;
+  }
+`;
+
+const GnbInput = styled.input`
+  width: 242px;
+  height: 36px;
+  padding: 0 60px 0 14px;
+  border: 1px solid #f7f7f6;
+  border-radius: 18px;
+  background-color: #f7f7f7;
+  font-family: "Noto Sans";
+  font-weight: 400;
+  font-size: 12px;
+  color: #666;
+  line-height: 16px;
+  outline: none;
+  &::placeholder {
+    letter-spacing: -0.05em;
+    font-weight: bold;
+    color: lightgray;
+  }
+`;
+
+const GnbInputClick = styled.img`
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  cursor: pointer;
+`;
+
 export default Header;
